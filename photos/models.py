@@ -66,7 +66,7 @@ class Image(models.Model):
         photos=cls.objects.filter(id=location_id)
         return photos
 
-    @classmethod
-    def filter_by_category(cls,category_id):
-        photos=cls.objects.filter(id=category_id)
-        return photos
+    # @classmethod
+    # def filter_by_category(cls,category_id):
+    #     photos=cls.objects.filter(id=category_id)
+    #     return photos
