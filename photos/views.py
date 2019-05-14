@@ -63,15 +63,15 @@ def imagedetails(request,image_id):
 def copy_image(from_model, to_model):
     to_model.image.save(from_model.image.url.split('/')[-1],from_model.image.file,save=True)
 
-def search_results(request):
+# def search_results(request):
 
-    if 'image' in request.GET and request.GET["image"]:
-        search_term = request.GET.get("image")
-        searched_images = Image.search_by_category(search_term)
-        message = f"{search_term}"
+#     if 'image' in request.GET and request.GET["image"]:
+#         search_term = request.GET.get("image")
+#         searched_images = Image.search_by_category(search_term)
+#         message = f"{search_term}"
 
-        return render(request, 'search.html',{"message":message,"images": searched_images})
+#         return render(request, 'search.html',{"message":message,"images": searched_images})
 
-    else:
-        message = "You haven't searched for any image"
-        return render(request, 'search.html',{"message":message})
+#     else:
+#         message = "You haven't searched for any image"
+#         return render(request, 'search.html',{"message":message})
