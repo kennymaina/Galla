@@ -42,16 +42,16 @@ def past_photos(request, past_date):
 
     return render(request, 'all-photos/past-photos.html', {"date": date})
  
-# def location(request,location_id):
-#     photos=Image.objects.filter(location_id=location_id)
+def location(request,location_id):
+    photos=Image.objects.filter(location_id=location_id)
 
-#     return render(request,'location.html',{"photos":photos})
+    return render(request,'location.html',{"photos":photos})
 
 
-def category(request,category_id):
-    photos=Image.objects.filter(category_id=category_id)
+# def category(request,category_id):
+#     photos=Image.objects.filter(category_id=category_id)
 
-    return render(request,'category.html',{"photos":photos})
+#     return render(request,'category.html',{"photos":photos})
 
 def imagedetails(request,image_id):
     try:
