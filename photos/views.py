@@ -7,9 +7,9 @@ from .models import Location,Image,Category
 
 # Create your views here.
 
-# def welcome(request):
-#     images = Image.get_photos()
-#     return render(request, 'index.html', {"images":images})
+def welcome(request):
+    images = Image.get_photos()
+    return render(request, 'index.html', {"images":images})
 
 def photos_today(request):
     date = dt.date.today()
@@ -42,10 +42,10 @@ def past_photos(request, past_date):
 
     return render(request, 'all-photos/past-photos.html', {"date": date})
  
-def location(request,location_id):
-    photos=Image.objects.filter(location_id=location_id)
+# def location(request,location_id):
+#     photos=Image.objects.filter(location_id=location_id)
 
-    return render(request,'location.html',{"photos":photos})
+#     return render(request,'location.html',{"photos":photos})
 
 
 def category(request,category_id):
