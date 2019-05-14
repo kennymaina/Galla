@@ -29,12 +29,12 @@ class Location(models.Model):
     def delete_location(self):
         self.delete()
 
-# class Image(models.Model):
-#     image=models.ImageField(upload_to ='images/')
-#     name=models.CharField(max_length =30)
-#     description=models.TextField()
-#     category=models.ForeignKey(Category,on_delete=models.CASCADE)
-#     location=models.ForeignKey(Location,on_delete=models.CASCADE)
+class Image(models.Model):
+    image=models.ImageField(upload_to ='images/')
+    name=models.CharField(max_length =30)
+    description=models.TextField()
+    category=models.ForeignKey(Category,on_delete=models.CASCADE)
+    location=models.ForeignKey(Location,on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
