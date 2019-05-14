@@ -53,12 +53,12 @@ def category(request,category_id):
 
     return render(request,'category.html',{"photos":photos})
 
-# def imagedetails(request,image_id):
-#     try:
-#         image = Image.objects.get(id=image_id)
-#     except DoesNotExist:
-#          raise Http404()
-#     return render(request,"image.html",{"image":image})
+def imagedetails(request,image_id):
+    try:
+        image = Image.objects.get(id=image_id)
+    except DoesNotExist:
+         raise Http404()
+    return render(request,"image.html",{"image":image})
 
 def copy_image(from_model, to_model):
     to_model.image.save(from_model.image.url.split('/')[-1],from_model.image.file,save=True)
