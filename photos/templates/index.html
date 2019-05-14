@@ -1,0 +1,63 @@
+
+{% extends 'all-photos/base.html' %}
+
+{% block content %} 
+
+
+
+{% for image in images %}
+<div class="col-md-4">
+        <div class="card mb-4 shadow-sm">
+          <img class = 'card-mb-4 imgclass' data-toggle="modal" data-target="#myModal{{image.id}}" src="{{image.image.url}}" style="width:20rem;height:24rem;" >
+          <div class="card-body">
+            <p class="card-text">{{image.name}}.</p>
+            <p>{{image.description}}</p>
+            {{image.id}}
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+              </div>
+              <small class="text-muted">9 mins</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div id="myModal{{image.id}}" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+            
+        
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-body">
+                  <img src="{{image.image.url}}" style="width:20rem;height:24rem;" >
+
+              </div>
+              <div class="modal-footer">
+                  <button class="btn btn-default" onclick="copyLink('http://127.0.0.1:8000/{{image.image.url}}')" >Copy Image URL</button>
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+             
+            </div>
+        
+          </div>
+        </div>    
+        
+
+      {% endfor %}
+      <script>
+        
+        const copyLink = function(str) {
+          const el = document.createElement('textarea');
+          el.value = str;
+          document.body.appendChild(el);
+          el.select();
+          document.execCommand('copy');
+          document.body.removeChild(el);
+        };
+      </script>
+
+         
+{% endblock %}

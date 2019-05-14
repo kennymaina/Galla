@@ -1,0 +1,30 @@
+{%extends 'all-photos/base.html'%}
+
+{% block content %}
+
+ <div class="container">
+   <body>
+
+     <div class="row text-center">
+       <div class=col-md-6>
+     <img src="{{image.image.url}}" align="left|right|middle|top|bottom" class="img-responsive" alt="">
+   </div>
+   </div>
+  
+   <div class="row">
+     <h1 class="text-center">{{image.name}}</h1>
+   </div>
+
+   <div class="row">
+     <p class="text-center"><strong>Description</strong></p>
+       <p class="text-center">{{image.description}}</p>
+   </div>
+
+   <div class="row text-center">
+     <p class="text-center"><strong>Category:</strong> {{image.category.name}} </p>
+       <p class="text-center"> <strong>Location:</strong>{{image.location.name}}</p>
+   </div>
+</body>
+ </div>
+
+ {% endblock %}
